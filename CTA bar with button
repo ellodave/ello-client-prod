@@ -1,0 +1,47 @@
+/*
+ ==============================
+   ELLODAVE CTA Newsletter style bar with button
+   Updated: 07.18
+   Richard Henney
+==============================
+*/
+
+/* ============================== */
+              HTML
+/* ============================== */
+
+/* ///////////////////////////////////////////////////////////////////
+ - INSIDE BOXED CONTENT ELEMENT WITH CLASS: newsletter-signup-bar'
+ - COLOURED BOX TYPE
+ - SET BG COLOUR AND COLOR HEX VALUES
+//////////////////////////////////////////////////////////////////////
+*/
+
+[one_half]
+<h2 style="color: #ffffff;">Stay up to date with news, offers and events.</h2>
+[/one_half]
+[one_half_last][sf_modal header="Sign up to Newsletter" btn_colour="white" btn_type="stroke-to-fill" btn_size="standard" btn_icon="" btn_text="Newsletter sign up"]
+[gravityform id=1 title=false description=false]
+[/sf_modal]
+[/one_half_last]
+
+/* ============================== */
+        CSS STANDARD DESKTOP
+/* ============================== */
+
+.newsletter-signup-bar{padding:0;}
+.newsletter-signup-bar .one_half.last .sf-button{float:right;margin:0!important;font-weight:600!important;font-size:1.2em!important;background: transparent!important;border: solid 2px #FFFFFF!important;}
+.newsletter-signup-bar .one_half{width:60%;margin:0;}
+.newsletter-signup-bar .one_half.last{width:40%;margin:0;}
+.newsletter-signup-bar .one_half h2{padding:0!important;margin:0!important;color: #ffffff;height: 48px;vertical-align: middle;display: flex;align-items: center;font-size:1.4em;}
+.newsletter-signup-bar .box-content-wrap{padding-left:10%;padding-right:10%;padding-top:15px;padding-bottom:15px;}
+
+/* ============================== */
+        CSS MOBILE & TABLET
+/* ============================== */
+
+.newsletter-signup-bar .one_half{width:100%!important;margin:0;}
+.newsletter-signup-bar .one_half.last{width:100%!important;margin:0;}
+.newsletter-signup-bar .box-content-wrap{padding:10px!important;}
+.newsletter-signup-bar .one_half h2{display:block!important;height:auto!important;padding:20px!important;text-align:center;}
+.newsletter-signup-bar .one_half.last .sf-button{float:none!important;margin:auto!important;width:100%;text-align:center;}
