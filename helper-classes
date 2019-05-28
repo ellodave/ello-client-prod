@@ -8,6 +8,33 @@
 .text-right{text-align:right;}
 .no-padding{padding:0;}
 .no-margin{margin:0;}
+.no-border{border:none!important;}
+.no-box-shadow{box-shadow:none!important;}
+.pos-s { position: static !important; }
+.pos-r { position: relative !important; }
+.pos-a { position: absolute !important; }
+.pos-sk { position: sticky !important; }
+.pos-f { position: fixed !important; }
+.z-a { z-index: auto !important; }
+.z0 { z-index: 0 !important; }
+.z1 { z-index: 1 !important; }
+.z2 { z-index: 2 !important; }
+.z3 { z-index: 3 !important; }
+.z4 { z-index: 4 !important; }
+.z5 { z-index: 5 !important; }
+.z6 { z-index: 6 !important; }
+.z9999 { z-index: 9999 !important; }
+.op0 { opacity: 0 !important; }
+.op0_1 { opacity: 0.1 !important; }
+.op0_2 { opacity: 0.2 !important; }
+.op0_3 { opacity: 0.3 !important; }
+.op0_4 { opacity: 0.4 !important; }
+.op0_5 { opacity: 0.5 !important; }
+.op0_6 { opacity: 0.6 !important; }
+.op0_7 { opacity: 0.7 !important; }
+.op0_8 { opacity: 0.8 !important; }
+.op0_9 { opacity: 0.9 !important; }
+.op1 { opacity: 1 !important; }
 .spb_content_element.text-block--h1-no-padding h1{padding:0!important;}
 .spb_content_element.text-block--h1-no-margin h1{margin:0!important;}
 .spb_content_element.text-block--h2-no-padding h2{padding:0!important;}
@@ -24,3 +51,11 @@
 .spb_content_element.text-block--h1-line-height2 h1{line-height:2;}
 .spb_content_element.text-block--h2-line-height1 h2{line-height:1;}
 .spb_content_element.text-block--h2-line-height2 h2{line-height:2;}
+.spb_content_element.text-block--h3-line-height1 h3{line-height:1;}
+.spb_content_element.text-block--h3-line-height2 h3{line-height:2;}
+.spb_content_element.text-block--h4-line-height1 h4{line-height:1;}
+.spb_content_element.text-block--h4-line-height2 h4{line-height:2;}
+.spb_content_element.text-block--h5-line-height1 h5{line-height:1;}
+.spb_content_element.text-block--h5-line-height2 h5{line-height:2;}
+.spb_content_element.text-block--h6-line-height1 h6{line-height:1;}
+.spb_content_element.text-block--h6-line-height2 h6{line-height:2;}
