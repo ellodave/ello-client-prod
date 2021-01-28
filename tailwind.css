@@ -394,15 +394,15 @@
 }
 
 .aspect-16-9{
-  aspect-radio:16/9;
+  aspect-ratio:16/9;
   }
   
   .aspect-1-1{
-  aspect-radio:1/1;
+  aspect-ratio:1/1;
   }
   
   .aspect-2-1{
-  aspect-radio:2/1;
+  aspect-ratio:2/1;
   }
 
 .bottom-0 {
