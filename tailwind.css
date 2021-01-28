@@ -3,6 +3,7 @@
 * PostCSS: v7.0.29,
 * Autoprefixer: v9.7.6
 * Browsers: last 4 version
+* Version: 1.1.2
 */
 
 
@@ -204,6 +205,18 @@
           order: 2 !important;
 }
 
+.order-3 {
+  -webkit-box-ordinal-group: 4 !important;
+      -ms-flex-order: 3 !important;
+          order: 3 !important;
+}
+
+.order-4 {
+  -webkit-box-ordinal-group: 5 !important;
+      -ms-flex-order: 4 !important;
+          order: 4 !important;
+}
+
 .clearfix:after {
   content: "" !important;
   display: table !important;
@@ -359,7 +372,7 @@
   overflow-x: hidden !important;
 }
 
-.static {
+.pos-static {
   position: static !important;
 }
 
@@ -381,16 +394,16 @@
 }
 
 .aspect-16-9{
-aspect-radio:16/9;
-}
-
-.aspect-1-1{
-aspect-radio:1/1;
-}
-
-.aspect-2-1{
-aspect-radio:2/1;
-}
+  aspect-radio:16/9;
+  }
+  
+  .aspect-1-1{
+  aspect-radio:1/1;
+  }
+  
+  .aspect-2-1{
+  aspect-radio:2/1;
+  }
 
 .bottom-0 {
   bottom: 0 !important;
@@ -727,6 +740,18 @@ aspect-radio:2/1;
             order: 2 !important;
   }
 
+  .sm\:order-3 {
+    -webkit-box-ordinal-group: 4 !important;
+        -ms-flex-order: 3 !important;
+            order: 3 !important;
+  }
+
+  .sm\:order-4 {
+    -webkit-box-ordinal-group: 5 !important;
+        -ms-flex-order: 4 !important;
+            order: 4 !important;
+  }
+
   .sm\:text-sm {
     font-size: 0.888888889rem !important;
   }
@@ -916,6 +941,12 @@ aspect-radio:2/1;
     -webkit-box-ordinal-group: 4 !important;
         -ms-flex-order: 3 !important;
             order: 3 !important;
+  }
+
+  .md\:order-4 {
+    -webkit-box-ordinal-group: 5 !important;
+        -ms-flex-order: 4 !important;
+            order: 4 !important;
   }
 
   .md\:mt-0{margin-top: 0px!important;}
