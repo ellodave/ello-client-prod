@@ -3,7 +3,7 @@
 * PostCSS: v7.0.29,
 * Autoprefixer: v9.7.6
 * Browsers: last 4 version
-* Version: 1.1.2
+* Version: 1.1.3
 */
 
 
@@ -98,6 +98,13 @@
   -webkit-box-direction: normal !important;
       -ms-flex-direction: column !important;
           flex-direction: column !important;
+}
+
+.flex-row {
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:row;
+  flex-direction:row;
 }
 
 .flex-wrap {
@@ -392,18 +399,6 @@
   position: -webkit-sticky !important;
   position: sticky !important;
 }
-
-.aspect-16-9{
-  aspect-ratio:16/9;
-  }
-  
-  .aspect-1-1{
-  aspect-ratio:1/1;
-  }
-  
-  .aspect-2-1{
-  aspect-ratio:2/1;
-  }
 
 .bottom-0 {
   bottom: 0 !important;
@@ -903,6 +898,21 @@
     grid-gap: 6rem !important;
     gap: 6rem !important;
   }
+
+  .sm\:flex-col {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  
+  .sm\:flex-row {
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -1080,6 +1090,20 @@
     grid-gap: 6rem !important;
     gap: 6rem !important;
   }
+
+  .md\:flex-col {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  
+  .md\:flex-row {
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1214,5 +1238,19 @@
   .lg\:grid-cols-5 {
     -ms-grid-columns: (minmax(0,1fr))[5]!important;
     grid-template-columns: repeat(5,minmax(0,1fr))!important;
+  }
+
+  .lg\:flex-col {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  
+  .lg\:flex-row {
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
   }
 }
