@@ -161,6 +161,10 @@
   justify-items: center !important;
 }
 
+.justify-items-end{
+  justify-items: end !important;
+}
+
 .justify-end {
   -webkit-box-pack: end !important;
       -ms-flex-pack: end !important;
