@@ -823,11 +823,11 @@ summary {
 	padding-bottom: 200px!important
 }
 
-.static {
+.pos-static {
 	position: static!important
 }
 
-.fixed {
+.pos-fixed {
 	position: fixed!important
 }
 
