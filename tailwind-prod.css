@@ -975,11 +975,11 @@ summary {
 	position: fixed!important
 }
 
-.absolute {
+.pos-absolute {
 	position: absolute!important
 }
 
-.relative {
+.pos-relative {
 	position: relative!important
 }
 
