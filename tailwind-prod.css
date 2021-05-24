@@ -301,6 +301,11 @@ summary {
 	align-content: flex-start!important
 }
 
+.content-end {
+        -ms-flex-line-pack: end;
+        align-content: end;
+}
+
 .self-start {
 	align-self: flex-start!important
 }
