@@ -2078,6 +2078,11 @@ summary {
     -ms-grid-columns: (minmax(0,1fr))[5]!important;
     grid-template-columns: repeat(5,minmax(0,1fr))!important;
   }
+	
+  .lg\:grid-cols-6 {
+  -ms-grid-columns: (minmax(0,1fr))[6]!important;
+  grid-template-columns: repeat(6,minmax(0,1fr))!important;
+  }
 
   .lg\:justify-evenly{
     -webkit-box-pack: space-evenly;
