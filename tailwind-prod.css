@@ -383,20 +383,44 @@ summary {
 	align-self: center!important
 }
 
-.justify-items-center {
-	justify-items: center!important
+.justify-start{
+	justify-content: flex-start!important;	
 }
 
-.justify-end {
-	justify-content: flex-end!important
+.justify-end{
+	justify-content: flex-end!important;	
 }
 
-.justify-center {
-	justify-content: center!important
+.justify-center{
+	justify-content: center!important;
 }
 
-.justify-self-center {
-	justify-self: center!important
+.justify-between{
+	justify-content: space-between!important;	
+}
+
+.justify-around{
+	justify-content: space-around!important;	
+}
+
+.justify-evenly{
+	justify-content: space-evenly!important;
+}
+
+.justify-items-start{
+	justify-items: start!important;	
+}
+
+.justify-items-end{
+	justify-items: end!important;	
+}
+
+.justify-items-center{
+	justify-items: center!important;
+}
+
+.justify-items-stretch{
+	justify-content: stretch!important;	
 }
 
 .flex-1 {
