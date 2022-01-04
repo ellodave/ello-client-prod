@@ -1693,6 +1693,22 @@ summary {
         -ms-flex-order: 4 !important;
             order: 4 !important;
   }
+	
+.sm\:col-start-1{
+	grid-column-start: 1;
+}
+
+.sm\:col-start-2{
+	grid-column-start: 2;
+}
+
+.sm\:col-start-3{
+	grid-column-start: 3;
+}
+
+.sm\:col-start-4{
+	grid-column-start: 4;
+}
 
   .sm\:text-sm {
     font-size: 0.888888889rem !important;
@@ -1909,6 +1925,22 @@ summary {
         -ms-flex-order: 4 !important;
             order: 4 !important;
   }
+	
+.md\:col-start-1{
+	grid-column-start: 1;
+}
+
+.md\:col-start-2{
+	grid-column-start: 2;
+}
+
+.md\:col-start-3{
+	grid-column-start: 3;
+}
+
+.md\:col-start-4{
+	grid-column-start: 4;
+}
 
   .md\:mt-0{margin-top: 0px!important;}
   .md\:mt-10{margin-top: 10px!important;}
@@ -2204,6 +2236,22 @@ summary {
   -ms-grid-columns: (minmax(0,1fr))[6]!important;
   grid-template-columns: repeat(6,minmax(0,1fr))!important;
   }
+
+.lg\:col-start-1{
+	grid-column-start: 1;
+}
+
+.lg\:col-start-2{
+	grid-column-start: 2;
+}
+
+.lg\:col-start-3{
+	grid-column-start: 3;
+}
+
+.lg\:col-start-4{
+	grid-column-start: 4;
+}
 
   .lg\:justify-evenly{
     -webkit-box-pack: space-evenly;
