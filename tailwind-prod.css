@@ -28,21 +28,21 @@ summary {
 }
 
 .skip-to-content-link {
-    left: 50%;
+    z-index: 9999;
     position: absolute;
-    transform: translateY(-100%);
-    z-index:2000;
-    background: #000000;
-    color: #fff!important;
-    padding: 1.25rem;left:0;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    text-rendering: optimizeLegibility;
 }
 
 .skip-to-content-link:focus {
-    transform: translateY(0%);
-    z-index:2000;
-    display:inline-block;
-    border:solid 3px yellow;
-    left:0;
+    height: auto;
+    position: static;
+    width: auto;
+    text-rendering: optimizeLegibility;
 }
 
 .bg-transparent {
