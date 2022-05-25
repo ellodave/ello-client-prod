@@ -45,22 +45,6 @@ summary {
     text-rendering: optimizeLegibility;
 }
 
-body a:any-link:focus{
-    outline: 3px solid transparent!important;
-    color: #0b0c0c!important;
-    background-color: #fd0!important;
-    box-shadow: 0 -2px #fd0!important, 0 4px #0b0c0c!important;
-    text-decoration: none!important;
-}
-
-body a:-webkit-any-link:focus{
-    outline: 3px solid transparent!important;
-    color: #0b0c0c!important;
-    background-color: #fd0!important;
-    box-shadow: 0 -2px #fd0!important, 0 4px #0b0c0c!important;
-    text-decoration: none!important;
-}
-
 .bg-transparent {
 	background-color: transparent!important
 }
