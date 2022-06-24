@@ -43,6 +43,8 @@ summary {
     position: static;
     width: auto;
     text-rendering: optimizeLegibility;
+    background-color:#fae100!important;
+    color:#0b0c0c!important;
 }
 
 .bg-transparent {
