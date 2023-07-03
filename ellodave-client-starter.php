@@ -2,9 +2,16 @@
 /**
  * Plugin Name: Ellodave Client Starter
  * Description: Default config for ellodave client website build.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Richard Henney
  */
+
+// Current Year Shortcode
+function year_shortcode() {
+$year = date('Y');
+return $year;
+}
+add_shortcode('year', 'year_shortcode');
 
 // Remove wp version number
  function wpb_remove_version() {
@@ -246,3 +253,24 @@ function gutenberg_removals()
   add_theme_support( 'editor-styles' );
 }
 add_action('after_setup_theme', 'gutenberg_removals');
+
+//Disable the new user notification sent to the site admin
+function smartwp_disable_new_user_notifications() {
+ //Remove original use created emails
+ remove_action( 'register_new_user', 'wp_send_new_user_notifications' );
+ remove_action( 'edit_user_created_user', 'wp_send_new_user_notifications', 10, 2 );
+ 
+ //Add new function to take over email creation
+ add_action( 'register_new_user', 'smartwp_send_new_user_notifications' );
+ add_action( 'edit_user_created_user', 'smartwp_send_new_user_notifications', 10, 2 );
+}
+function smartwp_send_new_user_notifications( $user_id, $notify = 'user' ) {
+ if ( empty($notify) || $notify == 'admin' ) {
+ return;
+ }elseif( $notify == 'both' ){
+ //Only send the new user their email, not the admin
+ $notify = 'user';
+ }
+ wp_send_new_user_notifications( $user_id, $notify );
+}
+add_action( 'init', 'smartwp_disable_new_user_notifications' );
