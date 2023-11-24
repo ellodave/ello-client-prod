@@ -1,17 +1,27 @@
 <?php
 /**
  * Plugin Name: Ellodave Client Starter
- * Description: Default config for ellodave client website build.
- * Version: 1.0.2
+ * Description: Default config for client website build.
+ * Version: 2.0.0
  * Author: Richard Henney
  */
 
-// Current Year Shortcode
-function year_shortcode() {
-$year = date('Y');
-return $year;
+/* *** NEW PROJECT TO DO's ***
+ - Disable No-index for search engines
+ - If needed, add script and upload block-controls-editor.js for gutenberg editor controls
+*/
+
+
+function images_admin_notice(){
+    global $pagenow;
+    if ( $pagenow == 'upload.php' ) {
+         echo '<div class="notice notice-warning is-dismissible">
+             <h3><strong>Uploading content to Media Library</strong></h3>
+			 <p>Please check if content is already present in the library before uploading to avoid duplication. Remember to include ALT text to any images uploaded. <a href="https://ellodave.sharepoint.com/:w:/g/EW2sl-oWhYRAsV9o1H89714BHC3wyT_LemyxUb1cF_hEiw?e=7jurMM" target="_blank">Read guide to uploading media.</a></p>
+         </div>';
+    }
 }
-add_shortcode('year', 'year_shortcode');
+add_action('admin_notices', 'images_admin_notice');
 
 // Remove wp version number
  function wpb_remove_version() {
@@ -66,33 +76,8 @@ function dequeue_jquery_migrate( $scripts ) {
     }
 }
 
-// Remove scripts in frontend to non-admin 
-function dequeue_for_logged_users() {
-    if ( ! is_user_logged_in() ) {
-        //wp_deregister_style( 'dashicons' ); //Remove dashicons
-		//wp_deregister_style( 'elementor-icons' ); //Remove Eicons
-    }
-}
-
-// Remove fontawesome
-function dequeue_elementor_fontawesome() {
-	foreach( [ 'solid', 'regular', 'brands' ] as $style ) {
-		//wp_deregister_style( 'elementor-icons-fa-' . $style );
-	}
-}
-
-// Remove Gutenberg Block Library CSS from loading on the frontend
-function remove_block_css() {
-//wp_dequeue_style( 'wp-block-library' ); // WordPress core
-//wp_dequeue_style( 'wp-block-library-theme' ); // WordPress core
-//wp_dequeue_style( 'wc-block-style' ); // WooCommerce
-wp_dequeue_style( 'storefront-gutenberg-blocks' ); // Storefront theme
-}
-
-// Remove WP Global styles / Empty SVG in Head
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-
+// Disable WP automatic compression
+add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
 
 // Disable the emoji's
 function disable_emojis() {
@@ -124,12 +109,9 @@ function my_deregister_scripts(){
 
 add_action( 'wp_footer', 'my_deregister_scripts' ); // Disable WP-EMBED
 add_action( 'init', 'disable_emojis' ); // Disable the emoji's
-//add_filter('use_block_editor_for_post_type', '__return_false', 10); // Disable Gutenberg Block Library
-//add_action( 'elementor/frontend/after_register_styles', 'dequeue_elementor_fontawesome', 20 ); // Disable fontawesome
 add_action( 'wp_enqueue_scripts', 'remove_block_css', 100 ); // Disable Gutenberg Block Library
 add_action( 'wp_default_scripts', 'dequeue_jquery_migrate' ); // Disable jquery_migrate
 add_action( 'wp_enqueue_scripts', 'dequeue_for_logged_users', 100 ); // Disable scripts in frontend to non-admin 
-add_filter( 'elementor/frontend/print_google_fonts', '__return_false' ); // Disable Google Fonts
 
 // Disable comments site-wide
 add_action('admin_init', function () {
@@ -177,6 +159,16 @@ add_action('wp_before_admin_bar_render', function() {
     $wp_admin_bar->remove_menu('comments');
 });
 
+
+// Remove all WP Gutenberg Patterns
+function removeGutenbergPatterns() {
+
+    remove_theme_support('core-block-patterns');
+
+}
+
+add_action('after_setup_theme', 'removeGutenbergPatterns');
+
 // Disable post tags
 add_action('init', function(){
     register_taxonomy('post_tag', []);
@@ -216,29 +208,6 @@ if($is_iphone) $classes[] = 'browser-is-iphone';
 return $classes; 
 }
 
-// Disable Gutenberg Blocks
-add_filter( 'allowed_block_types_all', 'misha_allowed_block_types', 25, 2 );
- 
-function misha_allowed_block_types( $allowed_blocks, $editor_context ) {
- 
-	return array(
-		'core/image',
-		'core/paragraph',
-		'core/heading',
-		'core/list',
-		'core/list-item'
-	);
- 
-}
-
-// Remove all WP Gutenberg Patterns
-function fire_theme_support() {
-
-    remove_theme_support('core-block-patterns');
-
-}
-
-add_action('after_setup_theme', 'fire_theme_support');
 
 /**
  * Disable Native Gutenberg Features
@@ -250,27 +219,6 @@ function gutenberg_removals()
   add_theme_support( 'disable-custom-colors' );
   add_theme_support( 'editor-color-palette' );
   add_theme_support( 'custom-background' );
-  add_theme_support( 'editor-styles' );
+  //add_theme_support( 'editor-styles' );
 }
 add_action('after_setup_theme', 'gutenberg_removals');
-
-//Disable the new user notification sent to the site admin
-function smartwp_disable_new_user_notifications() {
- //Remove original use created emails
- remove_action( 'register_new_user', 'wp_send_new_user_notifications' );
- remove_action( 'edit_user_created_user', 'wp_send_new_user_notifications', 10, 2 );
- 
- //Add new function to take over email creation
- add_action( 'register_new_user', 'smartwp_send_new_user_notifications' );
- add_action( 'edit_user_created_user', 'smartwp_send_new_user_notifications', 10, 2 );
-}
-function smartwp_send_new_user_notifications( $user_id, $notify = 'user' ) {
- if ( empty($notify) || $notify == 'admin' ) {
- return;
- }elseif( $notify == 'both' ){
- //Only send the new user their email, not the admin
- $notify = 'user';
- }
- wp_send_new_user_notifications( $user_id, $notify );
-}
-add_action( 'init', 'smartwp_disable_new_user_notifications' );
