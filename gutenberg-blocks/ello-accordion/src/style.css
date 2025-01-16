@@ -1,0 +1,121 @@
+/* Base accordion styles */
+.wp-block-ello-accordion-block {
+    border-top: 1px solid #e5e5e5;
+}
+
+.accordion-item {
+    background-color: var(--base-ultra-light);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Remove default details marker and style summary */
+.accordion-header {
+    list-style: none;
+    position: relative;
+    padding: var(--card-padding);
+    cursor: pointer;
+    font-size: var(--text-l);
+    color: var(--action);
+    display: block;
+    font-family: var(--heading-font-family);
+}
+
+.accordion-header::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom chevron icon */
+.accordion-header::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    width: calc(var(--width-xs)/8);
+    height: calc(var(--width-xs)/8);
+    border-right: 2px solid var(--action);
+    border-bottom: 2px solid var(--action);
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+/* Rotate chevron when open */
+details[open] .accordion-header::after {
+    transform: translateY(-30%) rotate(-135deg);
+}
+
+/* Content area styling */
+.accordion-content {
+    padding: var(--card-padding);
+    background-color: var(--base-ultra-light);
+}
+
+/* Image styling */
+.accordion-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--content-gap);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Editor specific styles */
+.wp-block-ello-accordion-block .remove-item {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: none;
+    border: none;
+    color: #cc1818;
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: var(--text-xl);
+    line-height: 1;
+}
+
+.accordion-item:hover .remove-item {
+    opacity: 1;
+}
+
+.add-item-button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: var(--btn-pad-x) !important;
+    background-color: var(--action);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.accordion-header:hover {
+    background-color: #f0f0f0;
+}
+
+/* Image controls in editor */
+.wp-block-ello-accordion-block .image-controls {
+    margin-bottom: var(--content-gap);
+}
+
+.wp-block-ello-accordion-block .image-preview {
+    position: relative;
+    margin-bottom: var(--content-gap);
+}
+
+.wp-block-ello-accordion-block .image-preview img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.wp-block-ello-accordion-block .image-preview button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
